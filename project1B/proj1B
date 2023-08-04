@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#Making initial directories
+mkdir -p $1/dir1/dir3/dir4
+mkdir -p $1/dir2
+cd $1
+
+#Creating dir2
+cd dir2
+touch fileB
+echo "Hi" > fileB
+chmod 640 fileB
+chmod 755 .
+cd ..
+
+#Creating dir4
+cd dir1/dir3/dir4
+chmod 500 .
+
+#Creating dir3
+cd ..
+touch fileC
+echo "Bye" > fileC
+chmod 600 fileC
+chmod 000 .
+
+#Creating dir1
+cd ..
+touch fileA
+echo "fileA!" > fileA
+chmod 600 fileA
+chmod 700 .
+
